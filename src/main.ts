@@ -8,7 +8,7 @@ export default async function (req: Request): Promise<Response> {
     if (req.method !== "POST") return new Response("method not allowed", { status: 405 });
 
     try {
-      const { webhookCallback } = await import("https://deno.land/x/grammy@v1.25.4/mod.ts");
+      const { webhookCallback } = await import("https://deno.land/x/grammy@v1.25.1/mod.ts");
       const { bot } = await import("./telegram.ts");
       const wh = webhookCallback(bot, "std/http");
       return await wh(req);
